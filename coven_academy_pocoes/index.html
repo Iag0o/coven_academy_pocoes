@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Um catálogo mágico de poções da Coven Academy.">
+  <title>Coven Academy | Grimório de Poções</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Coven Academy - início">
+      <span class="brand-mark">✦</span>
+      <span>COVEN <small>ACADEMY</small></span>
+    </a>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#catalogo">Poções</a>
+      <a href="#sobre">Sobre o grimório</a>
+    </nav>
+    <a class="topbar-note" href="#catalogo">Biblioteca alquímica <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> ARQUIVO ACADÊMICO • DEPARTAMENTO DE ALQUIMIA</p>
+        <h1>O conhecimento<br>está em cada <em>gota.</em></h1>
+        <p class="hero-description">Explore os registros de alquimia da Coven Academy. Descubra poções, suas finalidades, ingredientes e os cuidados necessários para cada preparação.</p>
+        <a class="primary-button" href="#catalogo">Explorar o grimório <span>↓</span></a>
+      </div>
+      <div class="hero-art" aria-label="Ilustração de frascos de poções">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-seal">✧</div>
+        <div class="bottle bottle-large"><div class="bottle-neck"></div><div class="bottle-liquid"></div><span>✦</span></div>
+        <div class="bottle bottle-small bottle-left"><div class="bottle-neck"></div><div class="bottle-liquid"></div></div>
+        <div class="bottle bottle-small bottle-right"><div class="bottle-neck"></div><div class="bottle-liquid"></div></div>
+        <p class="art-caption">ARS • SCIENTIA • MAGIA</p>
+      </div>
+      <div class="hero-bottom"><span>VOLUME I</span><span>EST. 1896</span><span>✧</span></div>
+    </section>
+
+    <section class="catalog-section" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">COLEÇÃO DE PREPARAÇÕES</p>
+          <h2>Catálogo de <em>poções</em></h2>
+          <p class="section-intro">Selecione um registro para consultar sua ficha alquímica.</p>
+        </div>
+        <div class="catalog-count"><strong id="result-count">06</strong><span>REGISTROS<br>DISPONÍVEIS</span></div>
+      </div>
+
+      <div class="catalog-tools">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="search-input" type="search" placeholder="Buscar uma poção..." autocomplete="off">
+        </label>
+        <div class="filters" role="group" aria-label="Filtrar por categoria">
+          <button class="filter active" data-filter="Todas">Todas</button>
+          <button class="filter" data-filter="Cura">Cura</button>
+          <button class="filter" data-filter="Percepção">Percepção</button>
+          <button class="filter" data-filter="Proteção">Proteção</button>
+          <button class="filter" data-filter="Transformação">Transformação</button>
+        </div>
+      </div>
+
+      <div class="potion-grid" id="potion-grid" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>Nenhuma poção encontrada. Tente outro nome ou categoria.</p>
+    </section>
+
+    <section class="quote-section" id="sobre">
+      <span class="quote-symbol">“</span>
+      <blockquote>Uma poção é mais do que seus ingredientes: é intenção, conhecimento e equilíbrio.</blockquote>
+      <p>— PRINCÍPIO FUNDAMENTAL DA ALQUIMIA</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#inicio"><span class="brand-mark">✦</span><span>COVEN <small>ACADEMY</small></span></a>
+    <p>GRIMÓRIO DE ALQUIMIA <span>•</span> MATERIAL DE ESTUDO FICTÍCIO</p>
+    <a href="#inicio">Voltar ao topo ↑</a>
+  </footer>
+
+  <div class="modal-backdrop" id="potion-modal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Fechar">×</button>
+      <div class="modal-visual" id="modal-visual"><span>✧</span></div>
+      <div class="modal-content">
+        <p class="eyebrow" id="modal-category">CATEGORIA</p>
+        <h2 id="modal-title">Nome da poção</h2>
+        <p class="modal-description" id="modal-description"></p>
+        <div class="detail-grid">
+          <div><span>FINALIDADE</span><p id="modal-purpose"></p></div>
+          <div><span>DIFICULDADE</span><p id="modal-difficulty"></p></div>
+          <div><span>DURAÇÃO</span><p id="modal-duration"></p></div>
+          <div><span>EFEITOS COLATERAIS</span><p id="modal-side-effects"></p></div>
+        </div>
+        <div class="ingredients">
+          <h3>Ingredientes registrados</h3>
+          <ul id="modal-ingredients"></ul>
+        </div>
+        <p class="fiction-note">Registro fictício para fins narrativos e de entretenimento. Não representa instruções para preparar ou consumir substâncias.</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
